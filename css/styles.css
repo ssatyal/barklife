@@ -1,0 +1,11 @@
+.feed {
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 50px;
+  border: 1px solid black;
+  min-height: 1000px;
+}
+
+/*input {
+  size: 30px;
+}*/
