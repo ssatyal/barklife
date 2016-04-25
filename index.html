@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html data-ng-app="barkr">
   <head>
     <meta charset="utf-8">
     <title>Barkr</title>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="script.js"></script>
   </head>
-  <body>
-    <h1>Barkr</h1>
+  <body data-ng-controller="barkrCtrl">
+    <h1 class="page-title">Barkr</h1>
     <div class="row feed">
       <div class="col-md-4">
-        <p>Login<p>
-          <input type="text"  placeholder="Username"/>
-          <input type="password"  placeholder="Password" />
+        <h3>Login</h3>
+          <p><input type="text"  placeholder="Username"/></p>
+          <p><input type="password"  placeholder="Password" /></p>
       </div>
       <div class="col-md-8">
-        Feed
+        <h4 data-ng-repeat="bark in barks">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+          {{bark}}
+        </h4>
       </div>
     </div>
   </body>

@@ -1,11 +1,21 @@
+body {
+  background-color: #5CE8E8;
+}
+
 .feed {
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 50px;
-  border: 1px solid black;
   min-height: 1000px;
 }
 
-/*input {
-  size: 30px;
-}*/
+.feed h4 {
+  border: 1px solid black;
+  padding: 20px;
+}
+.page-title {
+  margin-left: 100px;
+}
+.glyphicon-user {
+  margin-right: 20px;
+}
