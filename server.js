@@ -43,6 +43,14 @@ app.put('/barks/remove', function(req, res){
   });
 });
 
+app.post('/users', function(req, res){
+  db.collection("users", function(err, usersCollection){
+    usersCollection.insert(req.body, {w:1}, function(err){
+      res.send();
+    })
+  });
+});
+
 app.listen(3000, function(){
   console.log("help, I'm alive")
 });

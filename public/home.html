@@ -1,0 +1,21 @@
+<div class="row feed">
+  <div class="col-md-4">
+    <h3>Login</h3>
+      <p><input type="text"  placeholder="Username"/></p>
+      <p><input type="password"  placeholder="Password" /></p>
+      <a href="#/signup">Sign Up</a>
+  </div>
+  <div class="col-md-8">
+    <div class="new-bark">
+      <form>
+        <input data-ng-model="newBark" type="text" class="form-control" placeholder="Why are we barking?">
+        <button data-ng-click="submit()" class="btn" type="button">Submit</input>
+      </form>
+    </div>
+    <h4 data-ng-repeat="bark in barks">
+      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      {{bark.text}}
+      <a href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove"></a>
+    </h4>
+  </div>
+</div>

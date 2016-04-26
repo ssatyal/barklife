@@ -7,29 +7,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js"></script>
     <script src="script.js"></script>
   </head>
-  <body data-ng-controller="barkrCtrl">
+  <body>
     <h1 class="page-title">Barkr</h1>
-    <div class="row feed">
-      <div class="col-md-4">
-        <h3>Login</h3>
-          <p><input type="text"  placeholder="Username"/></p>
-          <p><input type="password"  placeholder="Password" /></p>
-      </div>
-      <div class="col-md-8">
-        <div class="new-bark">
-          <form>
-            <input data-ng-model="newBark" type="text" class="form-control" placeholder="Why are we barking?">
-            <button data-ng-click="submit()" class="btn" type="button">Submit</input>
-          </form>
-        </div>
-        <h4 data-ng-repeat="bark in barks">
-          <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-          {{bark.text}}
-          <a href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove"></a>
-        </h4>
-      </div>
-    </div>
+    <div data-ng-view></div>
   </body>
 </html>
