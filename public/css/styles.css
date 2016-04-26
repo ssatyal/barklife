@@ -19,3 +19,8 @@ body {
 .glyphicon-user {
   margin-right: 20px;
 }
+.new-bark {
+    border: 1px solid black;
+    padding: 20px;
+    width: 100%;
+}

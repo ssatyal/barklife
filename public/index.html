@@ -18,6 +18,12 @@
           <p><input type="password"  placeholder="Password" /></p>
       </div>
       <div class="col-md-8">
+        <div class="new-bark">
+          <form>
+            <input data-ng-model="newBark" type="text" class="form-control" placeholder="Why are we barking?">
+            <button data-ng-click="submit()" class="btn" type="button">Submit</input>
+          </form>
+        </div>
         <h4 data-ng-repeat="bark in barks">
           <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
           {{bark}}
