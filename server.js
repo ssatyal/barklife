@@ -1,17 +1,24 @@
 var express = require("express");
+var MongoClient = require("mongodb").MongoClient;
 var app = express();
 var bodyParser = require("body-parser");
+var db = null;
+MongoClient.connect("mongodb://localhost:27017/barkr", function(err, dbconn){
+  if(!err){
+    console.log("connected");
+    db = dbconn;
+  }
+});
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
 
-var barks = ["Hi, please throw ball?",
-"did someone say walk?",
-"PEANUT BUTTER IS THE BEST!!!!!",
-"outside smells good :)"];
-
 app.get("/barks", function(req, res){
-  res.send(barks)
+  db.collection("barks", function(err, barksCollection){
+    barksCollection.find().toArray(function(err, barks){
+      res.json(barks);
+    })
+  });
 })
 
 app.post('/barks', function(req, res){
@@ -20,5 +27,5 @@ app.post('/barks', function(req, res){
 });
 
 app.listen(3000, function(){
-  console.log("help, I'm alive... port 3000")
+  console.log("help, I'm alive")
 });
