@@ -9,6 +9,11 @@ app.controller("barkrCtrl",function($scope, $http){
       $scope.newBark = '';
     });
   };
+  $scope.removeBark = function(bark){
+    $http.put('/barks/remove', {bark: bark}).then(function(){
+      getBarks();
+    });
+  };
   function getBarks(){
     $http.get("/barks").then(function(response){
       $scope.barks = response.data;
