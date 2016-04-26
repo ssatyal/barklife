@@ -22,8 +22,12 @@ app.get("/barks", function(req, res){
 })
 
 app.post('/barks', function(req, res){
-  barks.push(req.body.newBark);
-  res.send();
+  db.collection("barks", function(err, barksCollection){
+    var newBark = {text: req.body.newBark};
+    barksCollection.insert(newBark, {w:1}, function(err){
+      res.send();
+    })
+  });
 });
 
 app.listen(3000, function(){
