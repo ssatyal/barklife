@@ -9,7 +9,7 @@ var jwt = require('jwt-simple');
 var JWT_SECRET = 'dogbark';
 var db = null;
 
-MongoClient.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/barkr", function(err, dbconn){
+MongoClient.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/barkr", function(err, dbconn){
   if(!err){
     console.log("db connected");
     db = dbconn;
