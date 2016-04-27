@@ -1,6 +1,9 @@
 {
   "name": "barklife",
   "main": "server.js",
+  "engines": {
+    "node": "5.10.1"
+  },
   "dependencies": {
     "bcrpyt": "^2.3.0",
     "body-parser": "^1.14.2",
