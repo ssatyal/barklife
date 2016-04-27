@@ -1,0 +1,12 @@
+{
+  "name": "barklife",
+  "main": "server.js",
+  "dependencies": {
+    "bcrpyt": "^2.3.0",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4",
+    "jwt-simple": "^0.4.1",
+    "mongodb": "^2.1.4"
+  },
+  "private": true
+}
