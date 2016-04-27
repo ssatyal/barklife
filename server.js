@@ -63,6 +63,7 @@ app.post('/users', function(req, res){
           password: hash,
           img_url: req.body.img_url
         };
+        console.log(newUser);
         usersCollection.insert(newUser, {w:1}, function(err){
           res.send();
         })

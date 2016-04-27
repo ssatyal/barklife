@@ -78,7 +78,8 @@ app.controller("SignUpCtrl",function($scope, $http){
   $scope.signup = function(){
     var newUser = {
       username: $scope.username,
-      password: $scope.password
+      password: $scope.password,
+      img_url: $scope.img_url
     }
     $http.post('/users', newUser).then(function(){
       console.log("worked");
