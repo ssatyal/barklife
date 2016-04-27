@@ -9,9 +9,9 @@ var jwt = require('jwt-simple');
 var JWT_SECRET = 'dogbark';
 var db = null;
 
-MongoClient.connect("mongodb://localhost:27017/barkr", function(err, dbconn){
+MongoClient.connect(process.env.MONGOLAB_URI || "mongodb://localhost:27017/barkr", function(err, dbconn){
   if(!err){
-    console.log("connected");
+    console.log("db connected");
     db = dbconn;
   }
 });
@@ -85,6 +85,6 @@ app.put('/users/signin', function(req, res, next){
   });
 });
 
-app.listen(3000, function(){
+app.listen(process.env.PORT || 3000, function(){
   console.log("help, I'm alive")
 });
