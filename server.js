@@ -60,6 +60,22 @@ app.post('/users', function(req, res){
   });
 });
 
+app.put('/users/signin', function(req, res, next){
+  db.collection('users', function(err, usersCollection){
+    usersCollection.findOne({username: req.body.username}, function(err, user){
+      console.log(req.body.password);
+      console.log(user.password);
+      bcrypt.compare(req.body.password, user.password, function(err, result){
+        if(result){
+          return res.send();
+        } else {
+          return res.status(400).send();
+        }
+      })
+    });
+  });
+});
+
 app.listen(3000, function(){
   console.log("help, I'm alive")
 });

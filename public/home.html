@@ -1,9 +1,10 @@
 <div class="row feed">
   <div class="col-md-4">
     <h3>Login</h3>
-      <p><input type="text"  placeholder="Username"/></p>
-      <p><input type="password"  placeholder="Password" /></p>
-      <a href="#/signup">Sign Up</a>
+      <p><input data-ng-model="username" type="text"  placeholder="Username"/></p>
+      <p><input data-ng-model="password" type="password"  placeholder="Password" /></p>
+      <p><button data-ng-click="signin()" type="button">Sign In</button></p>
+      <p><a href="#/signup">Sign Up</a></p>
   </div>
   <div class="col-md-8">
     <div class="new-bark">

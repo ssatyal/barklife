@@ -29,11 +29,22 @@ app.controller("HomeCtrl",function($scope, $http){
       getBarks();
     });
   };
+
+  $scope.signin = function(){
+    console.log("clicked");
+    $http.put('/users/signin', {username: $scope.username, password: $scope.password})
+    .then(function(){
+      console.log("successfully signed in");
+    }, function(err) {
+      console.log("bad login");
+    });
+  };
+
   function getBarks(){
     $http.get("/barks").then(function(response){
       $scope.barks = response.data;
     });
-  }
+  };
   getBarks();
 });
 
@@ -48,9 +59,5 @@ app.controller("SignUpCtrl",function($scope, $http){
       console.log("worked");
     })
   };
-  $scope.removeBark = function(bark){
-    $http.post('/users', newUser).then(function(){
-      console.log("success");
-    });
-    }
+
   });
