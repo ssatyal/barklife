@@ -4,9 +4,10 @@ var app = express();
 var bodyParser = require("body-parser");
 var ObjectId = require('mongodb').ObjectId;
 var bcrypt = require("bcryptjs");
+var jwt = require('jwt-simple');
 
+var JWT_SECRET = 'dogbark';
 var db = null;
-
 
 MongoClient.connect("mongodb://localhost:27017/barkr", function(err, dbconn){
   if(!err){
@@ -27,8 +28,13 @@ app.get("/barks", function(req, res){
 })
 
 app.post('/barks', function(req, res){
+  var token = req.headers.authorization; //adds user's token to post
+  var user = jwt.decode(token, JWT_SECRET); //decodes user's token
   db.collection("barks", function(err, barksCollection){
-    var newBark = {text: req.body.newBark};
+    var newBark = {
+      text: req.body.newBark,
+      user: user._id,
+      username: user.username};
     barksCollection.insert(newBark, {w:1}, function(err){
       res.send();
     })
@@ -36,9 +42,11 @@ app.post('/barks', function(req, res){
 });
 
 app.put('/barks/remove', function(req, res){
+  var token = req.headers.authorization; //adds user's token to post
+  var user = jwt.decode(token, JWT_SECRET); //decodes user's token
   db.collection("barks", function(err, barksCollection){
     var barkId = req.body.bark._id;
-    barksCollection.remove({_id: ObjectId(barkId)}, {w:1}, function(err){
+    barksCollection.remove({_id: ObjectId(barkId), user: user._id}, {w:1}, function(err){
       res.send();
     })
   });
@@ -67,7 +75,8 @@ app.put('/users/signin', function(req, res, next){
       console.log(user.password);
       bcrypt.compare(req.body.password, user.password, function(err, result){
         if(result){
-          return res.send();
+          var token = jwt.encode(user, JWT_SECRET);
+          return res.json({token: token});
         } else {
           return res.status(400).send();
         }

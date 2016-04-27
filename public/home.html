@@ -1,13 +1,21 @@
 <div class="row feed">
   <div class="col-md-4">
-    <h3>Login</h3>
-      <p><input data-ng-model="username" type="text"  placeholder="Username"/></p>
-      <p><input data-ng-model="password" type="password"  placeholder="Password" /></p>
-      <p><button data-ng-click="signin()" type="button">Sign In</button></p>
-      <p><a href="#/signup">Sign Up</a></p>
+    <div data-ng-hide="currentUser">
+      <h3>Login</h3>
+        <p><input data-ng-model="username" type="text"  placeholder="Username"/></p>
+        <p><input data-ng-model="password" type="password"  placeholder="Password" /></p>
+        <p><button data-ng-click="signin()" type="button">Sign In</button></p>
+        <p><a href="#/signup">Sign Up</a></p>
+    </div>
+    <div data-ng-show="currentUser">
+      <div>
+        <p>Hello, {{currentUser}}!</p>
+        <p><a href data-ng-click="signout()">Sign Out</a>
+      </div>
+    </div>
   </div>
   <div class="col-md-8">
-    <div class="new-bark">
+    <div class="new-bark" data-ng-show="currentUser">
       <form>
         <input data-ng-model="newBark" type="text" class="form-control" placeholder="Why are we barking?">
         <button data-ng-click="submit()" class="btn" type="button">Submit</input>
@@ -15,8 +23,8 @@
     </div>
     <h4 data-ng-repeat="bark in barks">
       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-      {{bark.text}}
-      <a href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove"></a>
+      {{bark.text}}<a href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove pull-right"></a>
+      <p><small>{{bark.username}}</small></p>
     </h4>
   </div>
 </div>

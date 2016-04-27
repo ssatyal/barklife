@@ -1,5 +1,6 @@
 var app = angular.module("barkr", [
-  'ngRoute'
+  'ngRoute',
+  'ngCookies'
 ]);
 
 app.config(function($routeProvider, $locationProvider){
@@ -12,20 +13,34 @@ app.config(function($routeProvider, $locationProvider){
     templateUrl: 'signup.html',
     controller: 'SignUpCtrl'
   })
-})
+});
 
-app.controller("HomeCtrl",function($scope, $http){
+//if browser refresh, get the current user and token if signed in
+app.run(function($rootScope, $cookies){
+  if($cookies.get('token') && $cookies.get('currentUser')){
+    $rootScope.token = $cookies.get('token');
+    $rootScope.currentUser = $cookies.get('currentUser');
+  }
+});
+
+app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
   $http.get("/barks").then(function(response){
     $scope.barks = response.data;
   });
   $scope.submit = function(){
-    $http.post('/barks', {newBark: $scope.newBark}).then(function(){
+    $http.post('/barks', {newBark: $scope.newBark},
+    {headers: { //optional argument
+      'authorization': $rootScope.token
+    }}).then(function(){
       getBarks();
       $scope.newBark = '';
     });
   };
   $scope.removeBark = function(bark){
-    $http.put('/barks/remove', {bark: bark}).then(function(){
+    $http.put('/barks/remove', {bark: bark},
+    {headers: { //optional argument
+      'authorization': $rootScope.token
+    }}).then(function(){
       getBarks();
     });
   };
@@ -33,11 +48,21 @@ app.controller("HomeCtrl",function($scope, $http){
   $scope.signin = function(){
     console.log("clicked");
     $http.put('/users/signin', {username: $scope.username, password: $scope.password})
-    .then(function(){
-      console.log("successfully signed in");
+    .then(function(res){
+      $cookies.put('token', res.data.token);
+      $cookies.put('currentUser', $scope.username);
+      $rootScope.token = res.data.token; //rootScope to access in diff controller
+      $rootScope.currentUser = $scope.username; //access user in diff controller
     }, function(err) {
-      console.log("bad login");
+      alert("bad login");
     });
+  };
+
+  $scope.signout = function() {
+    $cookies.remove('token');
+    $cookies.remove('currentUser');
+    $rootScope.token = null;
+    $rootScope.currentUser = null;
   };
 
   function getBarks(){
