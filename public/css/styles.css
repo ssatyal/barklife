@@ -1,5 +1,5 @@
 body {
-  background-color: #5CE8E8;
+  background-color: #B0E0E6;
 }
 
 .feed {
@@ -25,4 +25,9 @@ body {
     padding: 20px;
     width: 100%;
     border-radius: 10px;
+}
+
+.col-md-4 {
+  border: 1px solid black;
+  border-radius: 10px;
 }

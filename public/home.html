@@ -17,14 +17,14 @@
   <div class="col-md-8">
     <div class="new-bark" data-ng-show="currentUser">
       <form>
-        <input data-ng-model="newBark" type="text" class="form-control" placeholder="Why are we barking?">
+        <input data-ng-model="newBark" type="text" class="form-control" placeholder="bark at something!">
         <button data-ng-click="submit()" class="btn" type="button">WOOF</input>
       </form>
     </div>
-    <h4 data-ng-repeat="bark in barks">
+    <h4 data-ng-repeat="bark in barks | orderBy:'sortDate':true">
       <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
       {{bark.text}}<a href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove pull-right"></a>
-      <p><small>{{bark.username}}</small></p>
+      <p><small>{{bark.username}} barked on {{bark.created_at | date:'MM/dd/yyyy @ h:mma'}}</small></p>
     </h4>
   </div>
 </div>

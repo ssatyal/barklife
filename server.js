@@ -34,7 +34,9 @@ app.post('/barks', function(req, res){
     var newBark = {
       text: req.body.newBark,
       user: user._id,
-      username: user.username};
+      username: user.username,
+      img_url: user.img_url,
+      created_at: Date.now()};
     barksCollection.insert(newBark, {w:1}, function(err){
       res.send();
     })
@@ -58,7 +60,8 @@ app.post('/users', function(req, res){
       bcrypt.hash(req.body.password, salt, function(err, hash){
         var newUser = {
           username: req.body.username,
-          password: hash
+          password: hash,
+          img_url: req.body.img_url
         };
         usersCollection.insert(newUser, {w:1}, function(err){
           res.send();
