@@ -1,33 +1,35 @@
 body {
   background-color: #B0E0E6;
 }
-
 .feed {
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 50px;
   min-height: 1000px;
 }
-
 .feed h4 {
-  border: 1px solid black;
+  border: 2px solid lemonchiffon;
   padding: 20px;
   border-radius: 10px;
 }
 .page-title {
   margin-left: 100px;
 }
-.glyphicon-user {
-  margin-right: 20px;
-}
 .new-bark {
-    border: 1px solid black;
+    border: 2px solid lemonchiffon;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
 }
-
 .col-md-4 {
-  border: 1px solid black;
+  border: 2px solid lemonchiffon;
   border-radius: 10px;
+  margin-bottom: 10px;
+}
+.img-rounded {
+  border: 1px solid lemonchiffon;
+  width: 75px;
+}
+.col-md-8 {
+  padding: 0;
 }

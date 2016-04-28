@@ -22,7 +22,7 @@
       </form>
     </div>
     <h4 data-ng-repeat="bark in barks | orderBy:'sortDate':true">
-      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      <img data-ng-src="{{bark.img_url}}" class="img-rounded">
       {{bark.text}}<a href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove pull-right"></a>
       <p><small>{{bark.username}} barked on {{bark.created_at | date:'MM/dd/yyyy @ h:mma'}}</small></p>
     </h4>
