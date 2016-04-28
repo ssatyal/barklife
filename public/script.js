@@ -49,10 +49,14 @@ app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
     console.log("clicked");
     $http.put('/users/signin', {username: $scope.username, password: $scope.password})
     .then(function(res){
+      console.log("res:",res);
       $cookies.put('token', res.data.token);
       $cookies.put('currentUser', $scope.username);
       $rootScope.token = res.data.token; //rootScope to access in diff controller
       $rootScope.currentUser = $scope.username; //access user in diff controller
+      $rootScope.img_url = $scope.barks[0].img_url;
+      console.log("Scope: ", $scope);
+      console.log("rootScope: ",$rootScope);
     }, function(err) {
       alert("bad login");
     });

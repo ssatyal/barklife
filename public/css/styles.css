@@ -22,14 +22,18 @@ body {
     border-radius: 10px;
 }
 .col-md-4 {
-  border: 2px solid lemonchiffon;
+  /*border: 2px solid lemonchiffon;*/
   border-radius: 10px;
   margin-bottom: 10px;
 }
-.img-rounded {
+.bark-img {
   border: 1px solid lemonchiffon;
   width: 75px;
 }
 .col-md-8 {
   padding: 0;
+}
+.profile-img {
+  border: 4px double lemonchiffon;
+  width: 75px;
 }
