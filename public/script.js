@@ -20,6 +20,7 @@ app.run(function($rootScope, $cookies){
   if($cookies.get('token') && $cookies.get('currentUser')){
     $rootScope.token = $cookies.get('token');
     $rootScope.currentUser = $cookies.get('currentUser');
+    $rootScope.img_url = $cookies.get('img_url');
   }
 });
 
@@ -55,6 +56,7 @@ app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
       $rootScope.token = res.data.token; //rootScope to access in diff controller
       $rootScope.currentUser = $scope.username; //access user in diff controller
       $rootScope.img_url = $scope.barks[0].img_url;
+      $cookies.put('img_url', $scope.img_url);
       console.log("Scope: ", $scope);
       console.log("rootScope: ",$rootScope);
     }, function(err) {
@@ -65,8 +67,10 @@ app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
   $scope.signout = function() {
     $cookies.remove('token');
     $cookies.remove('currentUser');
+    $cookies.remove('img_url');
     $rootScope.token = null;
     $rootScope.currentUser = null;
+    $rootScope.img_url = null;
   };
 
   function getBarks(){
