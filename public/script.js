@@ -55,15 +55,26 @@ app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
       $cookies.put('currentUser', $scope.username);
       $rootScope.token = res.data.token; //rootScope to access in diff controller
       $rootScope.currentUser = $scope.username; //access user in diff controller
-      $rootScope.img_url = $scope.barks[0].img_url;
-      $cookies.put('img_url', $scope.img_url);
+      $rootScope.img_url = checkImg($rootScope.currentUser);
+      // $cookies.put('img_url', $scope.img_url);
       console.log("Scope: ", $scope);
+      console.log("barks: ", $scope.barks)
       console.log("rootScope: ",$rootScope);
     }, function(err) {
       alert("bad login");
     });
   };
-
+  var checkImg = function(userToCheck){
+    for (var i=0; i<$scope.barks.length; i++){
+      if(userToCheck==$scope.barks[i].username){
+        console.log("match!");
+        return $scope.barks[i].img_url;
+        break;
+      }else{
+        return null
+      }
+    }
+  };
   $scope.signout = function() {
     $cookies.remove('token');
     $cookies.remove('currentUser');
