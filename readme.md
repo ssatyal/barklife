@@ -1,5 +1,6 @@
 # BarkLife
 ## Social Networking for Canines
+![alt text](http://i.imgur.com/P2Zih4j.png "BarkLife")
 
 ## Technologies Used
 - This project utilizes the MEAN stack to implement a clone of a popular social networking site
