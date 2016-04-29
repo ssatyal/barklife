@@ -1,5 +1,5 @@
 body {
-  background-color: #B0E0E6;
+  background-color: #5199A3;
 }
 .feed {
   margin-left: 100px;
@@ -7,31 +7,38 @@ body {
   margin-top: 50px;
   min-height: 1000px;
 }
+h2 {
+  color: white;
+}
 .feed h4 {
-  border: 2px solid lemonchiffon;
+  border: 2px solid #FFFFFF;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 5px 5px 5px #888888;
+  box-shadow: 5px 5px 15px #000000;
+  background-color: #B0E0E6;
 }
 .title>.page-title{
   margin-left: 100px;
   text-decoration: none;
   color: white;
 }
-
+h3 {
+  color: white;
+}
 .new-bark {
-    border: 2px solid lemonchiffon;
+    border: 2px solid #FFFFFF;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px #888888;
+    box-shadow: 5px 5px 15px #000000;
+    background-color: #B0E0E6;
 }
 .col-md-4 {
   border-radius: 10px;
   margin-bottom: 10px;
 }
 .bark-img {
-  border: 1px solid lemonchiffon;
+  border: 1px solid #FFFFFF;
   width: 75px;
   margin: 0 15px 15px 0;
 }
@@ -39,7 +46,7 @@ body {
   padding: 0;
 }
 .profile-img {
-  border: 4px double lemonchiffon;
+  border: 4px double #FFFFFF;
   width: 75px;
 }
 .top {
@@ -48,6 +55,7 @@ body {
   background-size: cover;
   overflow: hidden;
   background-position: center;
+  border-bottom: 5px solid white;
 }
 .title:hover {
   color: #B0E0E6;
