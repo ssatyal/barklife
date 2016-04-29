@@ -107,7 +107,7 @@ app.controller("SignUpCtrl",function($scope, $http){
     })
   };
   $.ajax({
-  url: "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny+dog",
+  url: "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny+dog",
   type: "GET",
   dataType: "json"
   }).done ( function(response){
