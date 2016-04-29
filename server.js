@@ -78,7 +78,12 @@ app.put('/users/signin', function(req, res, next){
       bcrypt.compare(req.body.password, user.password, function(err, result){
         if(result){
           var token = jwt.encode(user, JWT_SECRET);
-          return res.json({token: token});
+          var img_url='';
+          var thisUser = usersCollection.findOne({username: req.body.username}).then(function(){
+            return img_url = thisUser.img_url;
+          });
+          console.log(img_url);
+          return res.json({img_url: img_url, token: token});
         } else {
           return res.status(400).send();
         }

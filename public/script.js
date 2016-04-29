@@ -68,6 +68,7 @@ app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
     for (var i=0; i<$scope.barks.length; i++){
       if(userToCheck==$scope.barks[i].username){
         console.log("match!");
+        console.log("$scope barks: ", $scope.barks[i].img_url);
         return $scope.barks[i].img_url;
         break;
       }else{

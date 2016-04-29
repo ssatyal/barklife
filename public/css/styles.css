@@ -11,24 +11,29 @@ body {
   border: 2px solid lemonchiffon;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 5px 5px 5px #888888;
 }
-.page-title {
+.title>.page-title{
   margin-left: 100px;
+  text-decoration: none;
+  color: white;
 }
+
 .new-bark {
     border: 2px solid lemonchiffon;
     padding: 20px;
     width: 100%;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px #888888;
 }
 .col-md-4 {
-  /*border: 2px solid lemonchiffon;*/
   border-radius: 10px;
   margin-bottom: 10px;
 }
 .bark-img {
   border: 1px solid lemonchiffon;
   width: 75px;
+  margin: 0 15px 15px 0;
 }
 .col-md-8 {
   padding: 0;
@@ -36,4 +41,14 @@ body {
 .profile-img {
   border: 4px double lemonchiffon;
   width: 75px;
+}
+.top {
+  height: 200px;
+  background-image: url("http://i.imgur.com/1xAGjFJ.jpg");
+  background-size: cover;
+  overflow: hidden;
+  background-position: center;
+}
+.title:hover {
+  color: #B0E0E6;
 }
