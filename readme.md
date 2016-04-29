@@ -15,7 +15,7 @@
 
 ## To Do
 - Add logged in profile photos
-- Fix sign in page css
+- Add Giphy API call for random gifs
 - add motto/tag line
 - Redirect to root when sign up
 

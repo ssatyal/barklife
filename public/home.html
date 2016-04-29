@@ -24,7 +24,7 @@
     </div>
     <h4 data-ng-repeat="bark in barks | orderBy:'sortDate':true">
       <img data-ng-src="{{bark.img_url}}" class="img-rounded bark-img">
-      {{bark.text}}<a href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove pull-right"></a>
+      {{bark.text}}<a data-ng-if="currentUser==bark.username" href data-ng-click="removeBark(bark)" class="glyphicon glyphicon-remove pull-right"></a>
       <p><small>{{bark.username}} barked on {{bark.created_at | date:'MM/dd/yyyy @ h:mma'}}</small></p>
     </h4>
   </div>

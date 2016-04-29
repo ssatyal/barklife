@@ -93,7 +93,7 @@ app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
   getBarks();
 });
 
-app.controller("SignUpCtrl",function($scope, $http){
+app.controller("SignUpCtrl",function($scope, $http, $window){
   console.log("sign up page");
   $scope.signup = function(){
     var newUser = {
@@ -105,5 +105,4 @@ app.controller("SignUpCtrl",function($scope, $http){
       console.log("worked");
     })
   };
-
   });
