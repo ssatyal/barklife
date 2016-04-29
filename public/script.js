@@ -93,8 +93,9 @@ app.controller("HomeCtrl",function($rootScope, $scope, $http, $cookies){
   getBarks();
 });
 
-app.controller("SignUpCtrl",function($scope, $http, $window){
+app.controller("SignUpCtrl",function($scope, $http){
   console.log("sign up page");
+
   $scope.signup = function(){
     var newUser = {
       username: $scope.username,
@@ -105,4 +106,16 @@ app.controller("SignUpCtrl",function($scope, $http, $window){
       console.log("worked");
     })
   };
+  $.ajax({
+  url: "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny+dog",
+  type: "GET",
+  dataType: "json"
+  }).done ( function(response){
+  console.log(response);
+  $('.giphy').append("<img src="+response.data.image_url+">");
+  }).fail ( function (){
+  console.log("fail");
+  }).always( function(){
+  console.log("Something happens");
+  });
   });
