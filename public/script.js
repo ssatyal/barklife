@@ -106,16 +106,18 @@ app.controller("SignUpCtrl",function($scope, $http){
       console.log("worked");
     })
   };
+  
+  //generates random giphy funny dog gif on sign up page
   $.ajax({
-  url: "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny+dog",
-  type: "GET",
-  dataType: "json"
-  }).done ( function(response){
-  console.log(response);
-  $('.giphy').append("<img src="+response.data.image_url+">");
-  }).fail ( function (){
-  console.log("fail");
-  }).always( function(){
-  console.log("Something happens");
-  });
+    url: "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny+dog",
+    type: "GET",
+    dataType: "json"
+    }).done ( function(response){
+    console.log(response);
+    $('.giphy').append("<img src="+response.data.image_url+">");
+    }).fail ( function (){
+    console.log("fail");
+    }).always( function(){
+    console.log("Something happens");
+    });
   });

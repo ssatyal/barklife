@@ -60,6 +60,7 @@ h3 {
 .title:hover {
   color: #B0E0E6;
 }
-.sign-in {
-  margin-left: 100px;
+.giphy > img {
+  border: 5px double white;
+  margin-top: 15px;
 }
