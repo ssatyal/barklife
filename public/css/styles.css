@@ -18,7 +18,7 @@ h2 {
   background-color: #B0E0E6;
 }
 .title>.page-title{
-  margin-left: 100px;
+  margin-left: 80%;
   text-decoration: none;
   color: white;
 }
@@ -50,11 +50,11 @@ h3 {
   width: 75px;
 }
 .top {
-  height: 200px;
-  background-image: url("http://i.imgur.com/1xAGjFJ.jpg");
+  height: 300px;
+  background-image: url("http://i.imgur.com/TUks4QQ.jpg");
   background-size: cover;
   overflow: hidden;
-  background-position: center;
+  background-position: 0% 45%;
   border-bottom: 5px solid white;
 }
 .title:hover {
