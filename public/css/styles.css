@@ -64,3 +64,24 @@ h3 {
   border: 10px double white;
   margin-top: 15px;
 }
+footer{
+  height:40px;
+  margin-top:15px;
+  background-color: #1B707C;
+  text-align: center;
+  color: white;
+}
+footer > p{
+  padding-top: 10px;
+}
+.fa-github{
+  color: white;
+  font-size: 30px;
+}
+.fa-github:hover{
+  color: #B0E0E6;
+  font-size: 30px;
+}
+.link {
+  margin: 100px 0 0 105px;
+}
