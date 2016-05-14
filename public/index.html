@@ -14,17 +14,19 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <div class="parent-img">
-      <div class="top">
-        <a class="title" href="#/"><h1 class="page-title">BarkLife</h1></a>
-        <div class="link">
-          <a class="btn-social" href="https://github.com/ssatyal/barklife" target="_blank"><span class="fa fa-github"></span></a>
+    <div class="page-wrap">
+      <div class="parent-img">
+        <div class="top">
+          <a class="title" href="#/"><h1 class="page-title">BarkLife</h1></a>
+          <div class="link">
+            <a class="btn-social" href="https://github.com/ssatyal/barklife" target="_blank"><span class="fa fa-github"></span></a>
+          </div>
         </div>
       </div>
+      <div data-ng-view></div>
     </div>
-    <div data-ng-view></div>
-    <footer>
+    <div class="footer">
       <p>built on the MEAN stack</p>
-    </footer>
+    </div>
   </body>
 </html>
